@@ -14,3 +14,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+
+Route::get('/login/employee','Auth\LoginController@showEmployeeLogin');
+Route::post('/login/employee','Auth\LoginController@employeeLogin');
+Route::post('/logout/employee',[
+    'uses'=>'Auth\LoginController@employeeLogout',
+    'as' => 'employee.logout'
+]);
+
+Route::view('/Employee', 'employee');
+Route::get('/home', 'HomeController@index')->name('home');
