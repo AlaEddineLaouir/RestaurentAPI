@@ -21,6 +21,7 @@
                         <option selected value="valide">Valide</option>
                         <option value="nonValide">Non Valide</option>
                         <option value="traitement">En Traitement</option>
+                        <option value="prete">Prete</option>
                         <option value="servis">Servis</option>
                         <option value="livrer">En Livraison</option>
                         <option value="regler">Regler</option>   

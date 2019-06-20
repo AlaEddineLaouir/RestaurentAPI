@@ -16,7 +16,7 @@ class CreateCommandsTable extends Migration
         Schema::create('commands', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->enum('type',['table','emporter','livrer']);
-            $table->enum('etat',['valide','nonValide','traitement','servis','livrer','regler']);
+            $table->enum('etat',['valide','nonValide','traitement','prete','servis','livrer','regler']);
             $table->boolean('valide');
             $table->text('command');
             $table->timestamps();

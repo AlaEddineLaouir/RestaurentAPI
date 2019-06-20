@@ -8,18 +8,18 @@
             <table class="table table-hover">
                 <thead>
                     <th>Commande</th>
-                    <th>Regler</th>
+                    <th>Servis</th>
                 </thead>
                 <tbody>
                     @foreach ($commands as $command)
                         <tr>
                             <td>{{$command->command}}</td>
                             <td>
-                                <form action="{{route('command.regler',['command'=>$command->id])}}" method="post">
+                                <form action="{{route('command.servis',['command'=>$command->id])}}" method="post">
                                     {{ csrf_field() }}
                                     @method('PUT')
                                     <button class="btn btn-success btn-sm">
-                                        Regler
+                                        Servis
                                     </button>
                             
                                 </form>

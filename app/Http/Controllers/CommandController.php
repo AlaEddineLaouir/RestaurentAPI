@@ -19,6 +19,8 @@ class CommandController extends Controller
         return view('commande.create');
     }
 
+   
+
     public function store(Request $request)
     {
         $this->validate($request,[
@@ -42,6 +44,26 @@ class CommandController extends Controller
         $commandObj=Command::find($command);
 
         $commandObj->etat='valide';
+
+        $commandObj->update();
+
+        return redirect()->back();
+    }
+    public function serve($command)
+    {
+        $commandObj=Command::find($command);
+
+        $commandObj->etat='servis';
+
+        $commandObj->update();
+
+        return redirect()->back();
+    }
+    public function regler($command)
+    {
+        $commandObj=Command::find($command);
+
+        $commandObj->etat='regler';
 
         $commandObj->update();
 
