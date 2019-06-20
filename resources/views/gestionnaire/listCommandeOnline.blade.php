@@ -10,7 +10,7 @@
                    
                     <th>Commande</th>
                     <th>Valide</th>
-                    <th>Invalide</th>
+                    <th>Invalider</th>
                 </thead>
                 <tbody>
                     @foreach ($commands as $command)
