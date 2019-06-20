@@ -62,6 +62,27 @@ Route::group(['middleware' => ['auth:employee']], function () {
         'as'=>'command.valider',
     ]);
 
+    Route::get('command/commandOnTable',[
+        'uses'=>'CommandViewController@commandOnTable',
+        'as'=>'command.table',
+    ]);
+    Route::get('command/commandServir',[
+        'uses'=>'CommandViewController@commandToServe',
+        'as'=>'command.servi',
+    ]);
+    Route::put('command/{command}/regler', [
+        'uses'=>'CommandController@regler',
+        'as'=>'command.regler',
+    ]);
+    Route::put('command/{command}/servis', [
+        'uses'=>'CommandController@serve',
+        'as'=>'command.servis',
+    ]);
+    
+    Route::resource('employee', 'EmployeeController');
+    Route::resource('command', 'CommandController');
+    
+
     
 
     Route::resource('employee', 'EmployeeController');
