@@ -112,10 +112,10 @@
                                                 <a href="">Menu</a>
                                             </li>
                                             <li class="list-group-item">
-                                                <a href="{{route('command.onlineCommand')}}">Commande faite online</a>
+                                                <a href="">Commande faite online</a>
                                             </li>
                                             <li class="list-group-item">
-                                                <a href="{{route('command.create')}}">Ajouter commande a livrer</a>
+                                                <a href="">Ajouter commande a livrer</a>
                                             </li>
     
                                         </ul>
@@ -129,12 +129,11 @@
                                         <ul class="list-group">
                                           
                                             <li class="list-group-item">
-                                                <a href="{{route('command.create')}}">Ajouter Commande </a>
+                                                <a href="">Ajouter Commande </a>
                                             </li>
                                             <li class="list-group-item">
-                                                <a href="{{route('command.table')}}">List Commnade a Table</a>
+                                                <a href="">List Commnade servis</a>
                                             </li>
-                                            
                                              
                                         </ul>
                                     </div>

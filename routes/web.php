@@ -43,8 +43,5 @@ Route::group(['middleware' => ['auth:employee']], function () {
         'as'=>'command.valider',
     ]);
 
-    Route::get('command/onTable',[
-        'uses'=>'CommandViewController@commandsOnTable',
-        'as'=>'command.table',
-    ]);
+    
 });

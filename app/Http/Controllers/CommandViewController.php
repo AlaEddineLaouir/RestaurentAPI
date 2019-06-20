@@ -12,9 +12,5 @@ class CommandViewController extends Controller
         return view('gestionnaire.listCommandeOnline')
                     ->with('commands',$commandOnline);
     }
-    public function commandOnTable()
-    {
-        $commandOnTable=Command::where('type','=','table')->wehre('etat','!=','servis')->get();
-        return view('serveur.listCommandeTable')->with('commands',$commandOnTable);
-    }
+    
 }
