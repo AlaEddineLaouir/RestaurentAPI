@@ -140,16 +140,16 @@
                                </div>
                                <div class="card card-default">
                                     <div class="card-header">
-                                       Chef cuisinir
+                                       Chef cuisinie
                                     </div>
                                     <div class="card-body">
                                         <ul class="list-group">
                                           
                                             <li class="list-group-item">
-                                                <a href="">List Des Nouvelles Commandes </a>
+                                                <a href="{{route('command.Atraiter')}}">List Des Nouvelles Commandes </a>
                                             </li>
                                             <li class="list-group-item">
-                                                <a href="">List Des Commandes en Traitement</a>
+                                                <a href="{{route('command.Entraitement')}}">List Des Commandes en Traitement</a>
                                             </li>
                                              
                                         </ul>
