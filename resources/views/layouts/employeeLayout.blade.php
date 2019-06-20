@@ -83,10 +83,10 @@
                                         <ul class="list-group">
                                           
                                             <li class="list-group-item">
-                                                <a href="">Ajouter Employee</a>
+                                                <a href="{{route('employee.create')}}">Ajouter Employee</a>
                                             </li>
                                             <li class="list-group-item">
-                                                <a href="">List Employees</a>
+                                                <a href="{{route('employee.index')}}">List Employees</a>
                                             </li>
                                                 
                                         </ul>
