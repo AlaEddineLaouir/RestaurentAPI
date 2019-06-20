@@ -1,4 +1,4 @@
-@extends('layout.employeeLayout')
+@extends('layouts.employeeLayout')
 @section('content')
     <div class="card">
         <div class="card-header">
@@ -7,22 +7,28 @@
         <div class="card-body">
             <table class="table table-hover">
                 <thead>
-                    <th>Client</th>
-                    <th>Adress Livraison</th>
+                   
                     <th>Commande</th>
                     <th>Valide</th>
                     <th>Invalide</th>
                 </thead>
                 <tbody>
+                    @foreach ($commands as $command)
                     <tr>
-                        <td>Mehdi 0541-86-35-92 mehdi@gmail.com</td>
-                        <td>El Khroube Constantine</td>
-                        <td>2 frite</td>
-                        <td> <a href="" class="btn btn-primary btn-sm">Valide</a>
+                        <td>{{$command->command}}</td>
+                        <td> <a href="/command/{{$command->id}}/valider" class="btn btn-primary btn-sm">Valide</a>
                         </td>
-                        <td> <a href="" class="btn btn-secondary btn-sm">Invalide</a>
+                        <td> 
+                            <form action="{{route('command.destroy',['command',$command->id])}}" method="post">
+                                @method('DELETE')
+                                {{ csrf_field() }}
+                                <button type="submit" class="btn btn-secondary btn-sm">Delete</button>
+                                
+                            </form>
                         </td>
                     </tr>
+                        
+                    @endforeach
                 </tbody>
             </table>
         </div>
