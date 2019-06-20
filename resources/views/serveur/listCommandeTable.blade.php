@@ -7,19 +7,17 @@
         <div class="card-body">
             <table class="table table-hover">
                 <thead>
-                    <th>Numero Table</th>
-                    <th>Emplacement Table</th>
                     <th>Commande</th>
                     <th>Regler</th>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>12</td>
-                        <td>etage 1 salle 2 , 3m table gauche</td>
-                        <td>2 frite</td>
-                        <td> <a href="" class="btn btn-primary btn-sm">Valide</a>
-                        </td>
-                    </tr>
+                    @foreach ($commands as $command)
+                        <tr>
+                            <td>{{$command->command}}</td>
+                            <td> <a href="/command/{{$command->id}}/regler" class="btn btn-success btn-sm">Regler</a>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
