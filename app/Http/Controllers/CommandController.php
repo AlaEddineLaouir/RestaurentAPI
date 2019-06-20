@@ -49,26 +49,55 @@ class CommandController extends Controller
 
         return redirect()->back();
     }
+
+    public function lance($command)
+    {
+        $commandObj=Command::find($command);
+
+        $commandObj->etat='traitement';
+         $commandObj->update();
+
+        return redirect()->back();
+    }
+
     public function serve($command)
     {
         $commandObj=Command::find($command);
 
         $commandObj->etat='servis';
 
+
         $commandObj->update();
 
         return redirect()->back();
     }
+
+    public function prete($command)
+    {
+        $commandObj=Command::find($command);
+
+        $commandObj->etat='prete';
+        $commandObj->update();
+
+        return redirect()->back();
+    }
+
     public function regler($command)
     {
         $commandObj=Command::find($command);
 
         $commandObj->etat='regler';
 
+
         $commandObj->update();
 
         return redirect()->back();
     }
+
+
+    
+    
+
     public function edit($command)
     {
         $commandObj = Command::find($command);

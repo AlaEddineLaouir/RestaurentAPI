@@ -11,11 +11,18 @@
                     <th>Prete</th>
                 </thead>
                 <tbody>
+                    @foreach ($commands as $command)
                     <tr>
-                        <td>2 frite</td>
-                        <td> <a href="" class="btn btn-primary btn-sm">Prete</a>
+                        <td>{{$command->command}}</td>
+                        <td>
+                            <form action="{{route('command.prete',['command'=>$command->id])}}" method="post">
+                                @method('PUT')
+                                {{ csrf_field() }}
+                                
+                            </form>
                         </td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

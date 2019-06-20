@@ -1,8 +1,8 @@
-@extends('layout.employeeLayout')
+@extends('layouts.employeeLayout')
 @section('content')
     <div class="card">
         <div class="card-header">
-            Liste Des Nouvelles Commandes
+            Liste Des Nouvelles  Commandes a traiter
         </div>
         <div class="card-body">
             <table class="table table-hover">
@@ -11,11 +11,17 @@
                     <th>Lancer Traitement</th>
                 </thead>
                 <tbody>
+                    @foreach ($commands as $command)
                     <tr>
-                        <td>2 frite</td>
-                        <td> <a href="" class="btn btn-primary btn-sm">Valide</a>
+                        <td>{{$command->command}}</td>
+                        <td>
+                            <form action="{{route('command.lance',['command'=>$command->id])}}" method="post">
+                                {{ csrf_field() }}
+                                @method('PUT')
+                            </form>
                         </td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
