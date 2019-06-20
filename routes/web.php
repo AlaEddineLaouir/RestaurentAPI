@@ -27,3 +27,8 @@ Route::post('/logout/employee',[
 
 Route::view('/Employee', 'employee');
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::group(['middleware' => ['auth:employee']], function () {
+    Route::resource('employee', 'EmployeeController');
+});

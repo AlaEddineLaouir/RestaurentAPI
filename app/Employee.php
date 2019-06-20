@@ -17,7 +17,7 @@ class Employee extends Authenticatable
     protected $fillable=['name','email','phone','role','password',];
 
     protected $hidden = [
-        'password', 'remember_token',
+         'remember_token',
     ];
     protected $casts = [
         'email_verified_at' => 'datetime',
