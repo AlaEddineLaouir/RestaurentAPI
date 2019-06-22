@@ -36,6 +36,26 @@ Route::group(['middleware' => ['auth:employee']], function () {
         'uses'=>'CommandViewController@commandOnline',
         'as'=>'command.onlineCommand',
     ]);
+
+    Route::put('command/{command}/lanceTraitement',[
+        'uses'=>'CommandController@lance',
+        'as'=>'command.lance',
+    ]);
+
+
+    Route::put('command/{command}/lanceTraitement',[
+        'uses'=>'CommandController@lance',
+        'as'=>'command.lance',
+    ]);
+
+    Route::get('command/{command}/prete',[
+        'uses'=>'CommandController@prete',
+        'as'=>'command.prete',
+    ]);
+    Route::get('command/EnTraiter',[
+        'uses'=>'CommandViewController@commandEnTraitement',
+        'as'=>'command.Entraitement',
+    ]);
     
     Route::get('command/{command}/valider', [
         'uses'=>'CommandController@valider',
@@ -63,5 +83,11 @@ Route::group(['middleware' => ['auth:employee']], function () {
     Route::resource('command', 'CommandController');
     
 
+    
+
+    Route::resource('employee', 'EmployeeController');
+    Route::resource('command', 'CommandController');
+    
+    
     
 });
