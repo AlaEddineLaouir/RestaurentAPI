@@ -1,4 +1,4 @@
-@extends('layout.employeeLayout')
+@extends('layouts.employeeLayout')
 @section('content')
     <div class="card">
         <div class="card-header">
@@ -18,7 +18,7 @@
                             <form action="{{route('command.prete',['command'=>$command->id])}}" method="post">
                                 @method('PUT')
                                 {{ csrf_field() }}
-                                
+                                <button type="submit" class="btn btn-success">Prete</button>
                             </form>
                         </td>
                     </tr>

@@ -18,6 +18,7 @@
                             <form action="{{route('command.lance',['command'=>$command->id])}}" method="post">
                                 {{ csrf_field() }}
                                 @method('PUT')
+                                <button type="submit" class="btn btn-success">Lance</button>
                             </form>
                         </td>
                     </tr>

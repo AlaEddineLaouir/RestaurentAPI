@@ -37,18 +37,18 @@ Route::group(['middleware' => ['auth:employee']], function () {
         'as'=>'command.onlineCommand',
     ]);
 
+    
+    Route::get('command/Atraiter', [
+        'uses'=>'CommandViewController@commandTraiter',
+        'as'=>'command.Atraiter'
+    ]);
+
     Route::put('command/{command}/lanceTraitement',[
         'uses'=>'CommandController@lance',
         'as'=>'command.lance',
     ]);
 
-
-    Route::put('command/{command}/lanceTraitement',[
-        'uses'=>'CommandController@lance',
-        'as'=>'command.lance',
-    ]);
-
-    Route::get('command/{command}/prete',[
+    Route::put('command/{command}/prete',[
         'uses'=>'CommandController@prete',
         'as'=>'command.prete',
     ]);

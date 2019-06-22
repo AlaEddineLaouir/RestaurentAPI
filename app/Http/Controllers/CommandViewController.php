@@ -23,7 +23,7 @@ class CommandViewController extends Controller
     public function commandEnTraitement()
     {
         $commandTraiter = Command::where('etat','=','traitement')->get();
-        return view('cuisinier.listNouvelleCommande')
+        return view('cuisinier.listCommandeEnTraitement')
              ->with('commands',$commandTraiter); 
         
     }
