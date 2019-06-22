@@ -25,7 +25,6 @@ class CommandViewController extends Controller
         $commandTraiter = Command::where('etat','=','traitement')->get();
         return view('cuisinier.listCommandeEnTraitement')
              ->with('commands',$commandTraiter); 
-        
     }
 
     public function commandOnTable()
