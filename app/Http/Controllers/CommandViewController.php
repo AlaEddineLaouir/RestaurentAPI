@@ -34,8 +34,25 @@ class CommandViewController extends Controller
     }
     public function commandToServe()
     {
-        $commandPrete=Command::where('type','=','table')->where('etat','=','prete')->get();
+        $commandPrete=Command::where('type','!=','livrer')->where('etat','=','prete')->get();
         return view('serveur.listCommandPreteServir')->with('commands',$commandPrete);
+    }
 
+    public function Alivrer()
+    {
+        $commandPrete=Command::where('type','=','livrer')->where('etat','=','prete')->get();
+        return view('livreur.listCommandALivrer')->with('commands',$commandPrete);
+    
+    }
+    public function Enlivraison()
+    {
+        $commandPrete=Command::where('type','=','livrer')->where('etat','=','livrer')->get();
+        return view('livreur.listCommandEnLivraison')->with('commands',$commandPrete);
+    }
+
+    public function caisse()
+    {
+        $commandAPayer=Command::where('etat','=','servis')->get();
+        return view('caissier.listCommandeServis')->with('commands',$commandAPayer);   
     }
 }

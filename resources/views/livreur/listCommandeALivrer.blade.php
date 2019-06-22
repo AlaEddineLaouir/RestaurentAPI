@@ -8,18 +8,25 @@
             <table class="table table-hover">
                 <thead>
                     
-                    <th>Adress</th>
-                    <th>Numero Commande</th>
-                    <th>Regler</th>
+                    <th>Command</th>
+                    <th>Prend En charge</th>
                 </thead>
                 <tbody>
+                    @foreach ($commands as $command)
                     <tr>
+                        <td>{{$command->command}}</td>
+                        <td>
+                            <form action="{{route('command.livrer',['command'=>$command->id])}}" method="post">
+                                {{ csrf_field() }}
+                                @method('PUT')
+                                <button class="btn btn-success btn-sm">
+                                    Livrer
+                                </button>
                         
-                        <td>etage 1 salle 2 , 3m table gauche</td>
-                        <td>12</td>
-                        <td> <a href="" class="btn btn-primary btn-sm">Regler</a>
+                            </form>
                         </td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

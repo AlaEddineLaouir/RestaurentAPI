@@ -166,10 +166,10 @@
                                         <ul class="list-group">
                                           
                                             <li class="list-group-item">
-                                                <a href="">Liste Des Commande Prete a Livrer </a>
+                                                <a href="{{route('command.Alivrer')}}">Liste Des Commande Prete a Livrer </a>
                                             </li>
                                             <li class="list-group-item">
-                                                <a href="">List Des Commandes A livrer</a>
+                                                <a href="{{route('command.Enlivraison')}}">List Des Commandes A livrer</a>
                                             </li>
                                              
                                         </ul>
@@ -183,7 +183,7 @@
                                         <ul class="list-group">
                                           
                                             <li class="list-group-item">
-                                                <a href="">Liste Des Commande Servis </a>
+                                                <a href="{{route('command.caisse')}}">Liste Des Commande Servis </a>
                                             </li>
                                             
                                         </ul>

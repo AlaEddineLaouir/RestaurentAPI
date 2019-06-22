@@ -1,25 +1,34 @@
-@extends('layout.employeeLayout')
+@extends('layouts.employeeLayout')
 @section('content')
     <div class="card">
         <div class="card-header">
-            Liste Des Commande Prete a livrer
+            Liste Des Commande Servis
         </div>
         <div class="card-body">
             <table class="table table-hover">
                 <thead>
                     
                     
-                    <th>Numero Commande</th>
                     <th>Commande</th>
                     <th>Regler</th>
                 </thead>
                 <tbody>
+                    @foreach ($commands as $command)
                     <tr>
-                        <td>12</td>
-                        <td>etage 1 salle 2 , 3m table gauche</td>
-                        <td> <a href="" class="btn btn-primary btn-sm">Regler</a>
-                        </td>
-                    </tr>
+                            <td>{{$command->command}}</td>
+                            <td>
+                                    <form action="{{route('command.regler',['command'=>$command->id])}}" method="post">
+                                        {{ csrf_field() }}
+                                        @method('PUT')
+                                        <button class="btn btn-success btn-sm">
+                                            Regler
+                                        </button>
+                                
+                                    </form>
+                                </td>
+                        </tr>
+                        
+                    @endforeach
                 </tbody>
             </table>
         </div>

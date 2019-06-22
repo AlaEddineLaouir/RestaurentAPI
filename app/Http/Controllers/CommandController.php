@@ -60,6 +60,16 @@ class CommandController extends Controller
         return redirect()->back();
     }
 
+    public function livrer($command)
+    {
+        $commandObj=Command::find($command);
+
+        $commandObj->etat='livrer';
+         $commandObj->update();
+
+        return redirect()->back();
+    }
+
     public function serve($command)
     {
         $commandObj=Command::find($command);

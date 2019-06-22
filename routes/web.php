@@ -87,6 +87,26 @@ Route::group(['middleware' => ['auth:employee']], function () {
         'uses'=>'CommandController@serve',
         'as'=>'command.servis',
     ]);
+
+
+    Route::get('command/Alivrer',[
+        'uses'=>'CommandViewController@Alivrer',
+        'as'=>'command.Alivrer',
+    ]);
+
+    Route::get('command/Enlivraison', [
+        'uses'=>'CommandViewController@Enlivraison',
+        'as'=>'command.Enlivraison',
+    ]);
+    Route::put('command/{command}/livrer',[
+        'uses'=>'CommandController@livrer',
+        'as'=>'command.livrer',
+    ]);
+
+    Route::get('command/caisse',[
+        'uses'=>'CommandViewController@caisse',
+        'as'=>'command.caisse'
+    ]);
     
     Route::resource('employee', 'EmployeeController');
     Route::resource('command', 'CommandController');
