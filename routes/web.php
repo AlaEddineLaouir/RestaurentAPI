@@ -111,11 +111,7 @@ Route::group(['middleware' => ['auth:employee']], function () {
     Route::resource('employee', 'EmployeeController');
     Route::resource('command', 'CommandController');
     
-
-    
-
-    Route::resource('employee', 'EmployeeController');
-    Route::resource('command', 'CommandController');
+    Route::resource('category', 'CategoryController');
     
     
     

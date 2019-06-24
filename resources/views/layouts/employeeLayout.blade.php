@@ -152,7 +152,10 @@
                                                     <ul class="list-group">
                                                       
                                                         <li class="list-group-item">
-                                                            <a href="">Ajouter Plat</a>
+                                                            <a href="{{route('category.create')}}">Ajouter Category</a>
+                                                        </li>
+                                                        <li class="list-group-item">
+                                                            <a href="{{route('category.index')}}">Menu</a>
                                                         </li>
                                                         <li class="list-group-item">
                                                             <a href="">Ajouter Une table</a>
@@ -160,9 +163,7 @@
                                                         <li class="list-group-item">
                                                             <a href="">List Des Tables</a>
                                                         </li>
-                                                        <li class="list-group-item">
-                                                            <a href="">Menu</a>
-                                                        </li>
+                                                        
                                                         <li class="list-group-item">
                                                             <a href="{{route('command.onlineCommand')}}">Commande faite online</a>
                                                         </li>
