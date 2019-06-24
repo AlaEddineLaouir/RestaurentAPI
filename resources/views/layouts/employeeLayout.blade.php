@@ -158,10 +158,10 @@
                                                             <a href="{{route('category.index')}}">Menu</a>
                                                         </li>
                                                         <li class="list-group-item">
-                                                            <a href="">Ajouter Une table</a>
+                                                            <a href="{{route('table.create')}}">Ajouter Une table</a>
                                                         </li>
                                                         <li class="list-group-item">
-                                                            <a href="">List Des Tables</a>
+                                                            <a href="{{route('table.index')}}">List Des Tables</a>
                                                         </li>
                                                         
                                                         <li class="list-group-item">

@@ -111,6 +111,7 @@ Route::group(['middleware' => ['auth:employee']], function () {
     Route::resource('employee', 'EmployeeController');
     Route::resource('command', 'CommandController');
     Route::resource('plat', 'PlatController');
+    Route::resource('table', 'TableController');
     Route::resource('category', 'CategoryController');
     
     
