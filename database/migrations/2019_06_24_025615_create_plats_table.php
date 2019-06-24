@@ -15,6 +15,10 @@ class CreatePlatsTable extends Migration
     {
         Schema::create('plats', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
+            $table->text('description');
+            $table->double('price');
+            $table->integer('category_id');
             $table->timestamps();
         });
     }

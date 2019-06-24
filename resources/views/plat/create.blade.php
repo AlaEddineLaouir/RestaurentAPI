@@ -1,4 +1,4 @@
-@extends('layout.employeeLayout')
+@extends('layouts.employeeLayout')
 
 @section('content')
     <div class="card">
@@ -6,22 +6,24 @@
             Ajouter Plat
         </div>
         <div class="card-body">
-            <form action="" method="post">
-                <div class="from-group">
+            <form action="{{route('plat.store')}}" method="post">
+                {{ csrf_field() }}
+                <div class="form-group">
                     <label for="name">Name:</label>
-                    <input type="text" class="from-control" id="name" name="name">
+                    <input type="text" class="form-control" id="name" name="name">
                 </div>
                 <div class="form-group">
                     <label for="category"> Category :</label>
-                    <select class="custom-select">
-                        <option selected value="1">Boisson</option>
-                        <option value="2">Entere</option>
-                        <option value="3">Salade</option>
+                    <select class="custom-select" name="category_id">
+                        @foreach ($categories as $category)
+                            <option value="{{$category->id}}">{{$category->title}}</option>
+                        @endforeach
+                        
                     </select>
                 </div>
-                <div class="from-group">
+                <div class="form-group">
                     <label for="price">Price:</label>
-                    <input type="text" class="from-control" id="price" name="price">
+                    <input type="text" class="form-control" id="price" name="price">
                 </div>
                 <div class="form-group">
                     <label for="description">Description:</label>

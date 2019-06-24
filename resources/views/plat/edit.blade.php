@@ -1,27 +1,41 @@
-@extends('layout.employeeLayout')
+@extends('layouts.employeeLayout')
 
 @section('content')
     <div class="card">
         <div class="card-header">
-            Ajouter Plat
+            Modifier Plat
         </div>
         <div class="card-body">
-            <form action="" method="post">
-                <div class="from-group">
+            <form action="{{route('plat.update',['plat'=>$plat->id])}}" method="post">
+                @method('PUT')
+                {{ csrf_field() }}
+
+
+                <div class="form-group">
                     <label for="name">Name:</label>
-                    <input type="text" class="from-control" id="name" name="name">
+                    <input type="text" class="form-control" id="name" name="name" value="{{$plat->name}}">
                 </div>
                 <div class="form-group">
                     <label for="category"> Category :</label>
-                    <select class="custom-select">
-                        <option selected value="1">Boisson</option>
-                        <option value="2">Entere</option>
-                        <option value="3">Salade</option>
+                    <select class="custom-select" name="category_id" >
+                        @foreach ($categories as $category)
+                            @if ($category->id == $plat->category->id)
+                                <option selected value="{{$category->id}}">{{$category->title}}</option>
+                            @else
+                                <option value="{{$category->id}}">{{$category->title}}</option>
+                            @endif
+                        @endforeach
                     </select>
+                </div>
+                <div class="frorm-group">
+                    <label for="price">Price:</label>
+                    <input type="text" class="form-control" id="price" name="price" value="{{$plat->price}}" >
                 </div>
                 <div class="form-group">
                     <label for="description">Description:</label>
-                    <textarea name="description" id="description" cols="30" rows="10" class="form-control"></textarea>
+                    <textarea name="description" id="description" cols="30" rows="10" class="form-control">
+                        {{$plat->description}}
+                    </textarea>
                 </div>
 
                 <div class="form-group">
