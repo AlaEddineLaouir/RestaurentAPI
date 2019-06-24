@@ -75,120 +75,145 @@
             <div class="container">
                     <div class="row">
                         <div class="col-md-4">
-                                <div class="card card-default">
-                                    <div class="card-header">
-                                       Adminstrateur
-                                    </div>
-                                    <div class="card-body">
-                                        <ul class="list-group">
-                                          
-                                            <li class="list-group-item">
-                                                <a href="{{route('employee.create')}}">Ajouter Employee</a>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <a href="{{route('employee.index')}}">List Employees</a>
-                                            </li>
+                                @switch(Auth::guard('employee')->user()->role)
+                                    @case('admin')
+                                        <div class="card card-default">
+                                            <div class="card-header">
+                                                Adminstrateur
+                                            </div>
+                                            <div class="card-body">
+                                                <ul class="list-group">
                                                 
-                                        </ul>
-                                    </div>
-                               </div>
-                               <div class="card card-default">
-                                    <div class="card-header">
-                                       Gestionaire de Commande
-                                    </div>
-                                    <div class="card-body">
-                                        <ul class="list-group">
-                                          
-                                            <li class="list-group-item">
-                                                <a href="">Ajouter Plat</a>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <a href="">Ajouter Une table</a>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <a href="">List Des Tables</a>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <a href="">Menu</a>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <a href="{{route('command.onlineCommand')}}">Commande faite online</a>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <a href="{{route('command.create')}}">Ajouter commande a livrer</a>
-                                            </li>
-    
-                                        </ul>
-                                    </div>
-                               </div>
-                               <div class="card card-default">
-                                    <div class="card-header">
-                                       Serveur
-                                    </div>
-                                    <div class="card-body">
-                                        <ul class="list-group">
-                                          
-                                            <li class="list-group-item">
-                                                <a href="{{route('command.create')}}">Ajouter Commande </a>
-                                            </li>
-                                            <li class="list-group-item">
-                                                    <a href="{{route('command.servi')}}">List Commnade prete a servir</a>
-                                                </li>
-                                            <li class="list-group-item">
-                                                <a href="{{route('command.table')}}">List Commnade servis a table</a>
-                                            </li>
-                                             
-                                        </ul>
-                                    </div>
-                               </div>
-                               <div class="card card-default">
-                                    <div class="card-header">
-                                       Chef cuisinie
-                                    </div>
-                                    <div class="card-body">
-                                        <ul class="list-group">
-                                          
-                                            <li class="list-group-item">
-                                                <a href="{{route('command.Atraiter')}}">List Des Nouvelles Commandes </a>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <a href="{{route('command.Entraitement')}}">List Des Commandes en Traitement</a>
-                                            </li>
-                                             
-                                        </ul>
-                                    </div>
-                               </div>
-                               <div class="card card-default">
-                                    <div class="card-header">
-                                       Livreur
-                                    </div>
-                                    <div class="card-body">
-                                        <ul class="list-group">
-                                          
-                                            <li class="list-group-item">
-                                                <a href="{{route('command.Alivrer')}}">Liste Des Commande Prete a Livrer </a>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <a href="{{route('command.Enlivraison')}}">List Des Commandes A livrer</a>
-                                            </li>
-                                             
-                                        </ul>
-                                    </div>
-                               </div>
-                               <div class="card card-default">
-                                    <div class="card-header">
-                                       Caissier
-                                    </div>
-                                    <div class="card-body">
-                                        <ul class="list-group">
-                                          
-                                            <li class="list-group-item">
-                                                <a href="{{route('command.caisse')}}">Liste Des Commande Servis </a>
-                                            </li>
-                                            
-                                        </ul>
-                                    </div>
-                               </div>
+                                                    <li class="list-group-item">
+                                                        <a href="{{route('employee.create')}}">Ajouter Employee</a>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <a href="{{route('employee.index')}}">List Employees</a>
+                                                    </li>
+                                                        
+                                                </ul>
+                                            </div>
+                                        </div>    
+
+                                        @break
+                                    @case('serveur')
+                                    
+                                        <div class="card card-default">
+                                            <div class="card-header">
+                                               Serveur
+                                            </div>
+                                            <div class="card-body">
+                                                <ul class="list-group">
+                                                  
+                                                    <li class="list-group-item">
+                                                        <a href="{{route('command.create')}}">Ajouter Commande </a>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                            <a href="{{route('command.servi')}}">List Commnade prete a servir</a>
+                                                        </li>
+                                                    <li class="list-group-item">
+                                                        <a href="{{route('command.table')}}">List Commnade servis a table</a>
+                                                    </li>
+                                                     
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    
+                                        @break
+
+                                        @case('cuisinier')
+
+                                            <div class="card card-default">
+                                                <div class="card-header">
+                                                   Chef cuisinie
+                                                </div>
+                                                <div class="card-body">
+                                                    <ul class="list-group">
+                                                      
+                                                        <li class="list-group-item">
+                                                            <a href="{{route('command.Atraiter')}}">List Des Nouvelles Commandes </a>
+                                                        </li>
+                                                        <li class="list-group-item">
+                                                            <a href="{{route('command.Entraitement')}}">List Des Commandes en Traitement</a>
+                                                        </li>
+                                                         
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                        @break
+                                        @case('RC')
+
+                                        <div class="card card-default">
+                                                <div class="card-header">
+                                                   Gestionaire de Commande
+                                                </div>
+                                                <div class="card-body">
+                                                    <ul class="list-group">
+                                                      
+                                                        <li class="list-group-item">
+                                                            <a href="">Ajouter Plat</a>
+                                                        </li>
+                                                        <li class="list-group-item">
+                                                            <a href="">Ajouter Une table</a>
+                                                        </li>
+                                                        <li class="list-group-item">
+                                                            <a href="">List Des Tables</a>
+                                                        </li>
+                                                        <li class="list-group-item">
+                                                            <a href="">Menu</a>
+                                                        </li>
+                                                        <li class="list-group-item">
+                                                            <a href="{{route('command.onlineCommand')}}">Commande faite online</a>
+                                                        </li>
+                                                        <li class="list-group-item">
+                                                            <a href="{{route('command.create')}}">Ajouter commande a livrer</a>
+                                                        </li>
+                
+                                                    </ul>
+                                                </div>
+                                           </div>
+                                        @break
+                                        @case('caissier')
+
+                                            <div class="card card-default">
+                                                <div class="card-header">
+                                                   Caissier
+                                                </div>
+                                                <div class="card-body">
+                                                    <ul class="list-group">
+                                                      
+                                                        <li class="list-group-item">
+                                                            <a href="{{route('command.caisse')}}">Liste Des Commande Servis </a>
+                                                        </li>
+                                                        
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        @break
+
+                                        @case('livreur')
+                                        <div class="card card-default">
+                                                <div class="card-header">
+                                                   Livreur
+                                                </div>
+                                                <div class="card-body">
+                                                    <ul class="list-group">
+                                                      
+                                                        <li class="list-group-item">
+                                                            <a href="{{route('command.Alivrer')}}">Liste Des Commande Prete a Livrer </a>
+                                                        </li>
+                                                        <li class="list-group-item">
+                                                            <a href="{{route('command.Enlivraison')}}">List Des Commandes A livrer</a>
+                                                        </li>
+                                                         
+                                                    </ul>
+                                                </div>
+                                           </div>
+                                        @break
+                                    @default
+                                        
+                                @endswitch       
                         </div>
                         <div class="col-md-8">
                                 @if ($errors->count() > 0)
