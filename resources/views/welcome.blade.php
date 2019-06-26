@@ -10,6 +10,8 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
         <!-- Styles -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
         <style>
             html, body {
                 background-color: #fff;
@@ -81,18 +83,32 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Bienvenu a notre restaurant 
+                </div>
+                <div class="title m-b-md">
+                    Menu 
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <div class="container">
+                        <div class="row">
+                                @foreach ($categories as $category)
+                                <div class="col-md-4">
+                                    <h3>{{$category->title}}</h3>
+                                    <ul class="list-group">
+                                        @foreach ($category->plats as $plat)
+                                            <li class="list-group-item">
+                                                <h5 class="d-block">{{$plat->description}}</h5>
+                                                <strong class="float-right">
+                                                    {{$plat->price}}
+                                                </strong>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endforeach
+                        </div>
                 </div>
+
             </div>
         </div>
     </body>
