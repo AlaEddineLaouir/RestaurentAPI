@@ -8,12 +8,14 @@
             <table class="table table-hover">
                 <thead>
                     <th>Commande</th>
+                    <th>Table</th>
                     <th>Servis</th>
                 </thead>
                 <tbody>
                     @foreach ($commands as $command)
                         <tr>
                             <td>{{$command->command}}</td>
+                            <td>{{$command->table->placement}}</td>
                             <td>
                                 <form action="{{route('command.servis',['command'=>$command->id])}}" method="post">
                                     {{ csrf_field() }}

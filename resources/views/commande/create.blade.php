@@ -27,6 +27,14 @@
                         <option value="regler">Regler</option>   
                     </select>
                 </div>
+                <div class="form-groupe">
+                    <label for="etat">Table :</label>
+                    <select class="custom-select" name="table">
+                       @foreach ($tables as $table)
+                            <option value="{{$table->id}}">{{$table->id}} : {{$table->placement}}</option>
+                       @endforeach   
+                    </select>
+                </div>
                 
                 <div class="form-group">
                     <label for="commande">Commande :</label>

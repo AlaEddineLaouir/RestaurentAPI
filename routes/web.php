@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome')->with('categories',App\Category::all());
 });
 
 Auth::routes();
@@ -25,7 +25,7 @@ Route::post('/logout/employee',[
     'as' => 'employee.logout'
 ]);
 
-Route::view('/Employee', 'employee');
+Route::view('/Employee', 'employee')->middleware('auth:employee');
 Route::get('/home', 'HomeController@index')->name('home');
 
 

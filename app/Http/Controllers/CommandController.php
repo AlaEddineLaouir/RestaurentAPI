@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Command;
+use App\Table;
 use Illuminate\Http\Request;
 
 class CommandController extends Controller
@@ -16,7 +17,7 @@ class CommandController extends Controller
 
     public function create()
     {
-        return view('commande.create');
+        return view('commande.create')->with('tables',Table::where('occupied','is','false')->get());
     }
 
    
@@ -29,12 +30,20 @@ class CommandController extends Controller
             'etat'=>'required'
         ]);
 
-        Command::create([
+       
+        $command=Command::create([
             'type'=>$this->commandTypes[$request->type],
             'valide'=>true,
             'command'=>$request->command,
             'etat'=>$request->etat,
         ]);
+
+        if($request->table)
+        {
+            $command->table_id=$request->table;
+            $command->save();
+        }
+
 
         return redirect()->back();
     }
