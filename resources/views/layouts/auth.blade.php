@@ -19,6 +19,8 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body>
@@ -70,9 +72,27 @@
                 </div>
             </nav>
 
-            <main class="py-4">
-                @yield('content')
-            </main>
+           <div class="container">
+               <div class="row">
+                    <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <ul class="list-group">
+                                        <li class="list-group-item">
+                                            <a href="">mes Commands</a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a href="">Nouvelle Command</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <h1>Espace Client</h1>
+                        </div>
+               </div>
+           </div>
         </div>
     </body>
     </html>
