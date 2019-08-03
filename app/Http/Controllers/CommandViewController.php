@@ -41,7 +41,7 @@ class CommandViewController extends Controller
     public function Alivrer()
     {
         $commandPrete=Command::where('type','=','livrer')->where('etat','=','prete')->get();
-        return view('livreur.listCommandALivrer')->with('commands',$commandPrete);
+        return view('livreur.listCommandeALivrer')->with('commands',$commandPrete);
     
     }
     public function Enlivraison()
